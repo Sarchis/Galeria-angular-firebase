@@ -1,0 +1,46 @@
+<!--
+<div class="row">
+    <h2>Latest Photos</h2>
+    <ul id="thumbnailsList">
+        <li *ngFor="let image of images | async" class="img">
+            <a [routerLink]="['/image', image.$key]">
+            <img src="{{image.url}}" class="tn">
+            </a>
+        </li>
+    </ul>
+</div>
+-->
+
+<div class="container gal-container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 text-center">
+            <h2>Galería</h2>
+        </div>
+        <div class="col-md-4 col-sm-6 co-xs-12 gal-item" *ngFor="let image of images | async" >
+            <div class="box">
+
+                <a href="#" data-toggle="modal" [attr.data-target]="'#' + image.$key">
+                    <img src="{{image.url}}">
+                </a>
+
+                <div class="modal fade" id="{{image.$key}}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+                            <div class="modal-body">
+                                <img src="{{image.url}}">
+                            </div>
+
+                            <div class="col-md-12 description">
+                                <h4>Descripción de la foto</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
